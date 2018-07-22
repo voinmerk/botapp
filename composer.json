@@ -1,0 +1,13 @@
+{
+    "name": "admin/botapp",
+    "description": "Library for my telegram bot framework",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Evgeniy Voyt",
+            "email": "kremniov96@gmail.com"
+        }
+    ],
+    "require": {}
+}
