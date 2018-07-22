@@ -1,7 +1,7 @@
 {
     "name": "voinmerk/botapp2",
-    "description": "Library for my telegram bot framework",
-    "type": "library",
+    "description": "Extension for my telegram bot framework",
+    "type": "extension",
     "license": "MIT",
     "authors": [
         {

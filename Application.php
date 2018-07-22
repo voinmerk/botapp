@@ -11,7 +11,12 @@ class Application
 		$this->classMap = $config['classes'];
 	}
 
-	public function Run()
+	public function run()
+	{
+
+	}
+
+	public function autoload($className)
 	{
 		
 	}
