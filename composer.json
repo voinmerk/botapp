@@ -9,7 +9,7 @@
             "email": "kremniov96@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "dev-bugfix",
     "prefer-stable": true,
     "repositories": [
         {
@@ -17,5 +17,7 @@
             "url": "https://github.com/voinmerk/botapp"
         }
     ],
-    "require": {}
+    "require": {
+        "botapp/botapp": "dev-bugfix"
+    }
 }
