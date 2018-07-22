@@ -1,5 +1,5 @@
 {
-    "name": "admin/botapp",
+    "name": "voinmerk/botapp2",
     "description": "Library for my telegram bot framework",
     "type": "library",
     "license": "MIT",
@@ -9,5 +9,7 @@
             "email": "kremniov96@gmail.com"
         }
     ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {}
 }
