@@ -11,5 +11,11 @@
     ],
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/voinmerk/botapp"
+        }
+    ],
     "require": {}
 }
