@@ -9,7 +9,7 @@
             "email": "kremniov96@gmail.com"
         }
     ],
-    "minimum-stability": "dev-bugfix",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": [
         {
