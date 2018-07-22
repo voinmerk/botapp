@@ -17,7 +17,8 @@
             "url": "https://github.com/voinmerk/botapp"
         }
     ],
+    "version": "1.0.0",
     "require": {
-        "botapp/botapp": "master"
+        "botapp/botapp": "1.0.*"
     }
 }
