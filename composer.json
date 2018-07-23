@@ -23,7 +23,7 @@
     "autoload": {
         "psr-4": {
             "voinmerk\\botapp\\": "",
-            "voinmerk\\botapp\\db": ""
+            "voinmerk\\botapp\\db\\": ""
         }
     }
 }
