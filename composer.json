@@ -22,7 +22,8 @@
     },
     "autoload": {
         "psr-4": {
-            "voinmerk\\botapp\\": ""
+            "voinmerk\\botapp\\": "",
+            "voinmerk\\botapp\\db": ""
         }
-    },
+    }
 }
