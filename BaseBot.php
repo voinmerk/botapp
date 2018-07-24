@@ -130,4 +130,92 @@ class BaseBot
             }
         }
     }
+
+    public static function log($update, $time)
+    {
+        if(!empty($update["message"]))
+        {
+            if(!empty($update["message"][text]))
+            {
+                if($update[message][text][0] == '/')
+                {
+                    $this->addLog($update[message][from][id],'info', $update[message][text], json_encode($update), $time, 'command');
+                }
+                else
+                {
+                    $this->addLog($update[message][from][id],'info', $update[message][text], json_encode($update), $time, 'text message');
+                }
+            }
+            elseif(!empty($update["message"][audio]))
+            {
+                $this->addLog($update[message][from][id],'info', $update[message][audio][file_id], json_encode($update), $time, 'audio message');
+            }
+            elseif(!empty($update["message"][document]))
+            {
+                $this->addLog($update[message][from][id],'info', $update[message][document][file_id], json_encode($update), $time, 'document message');
+            }
+            elseif(!empty($update["message"][video]))
+            {
+                $this->addLog($update[message][from][id],'info', $update[message][video][file_id], json_encode($update), $time, 'video message');
+            }
+            elseif(!empty($update["message"][video_note]))
+            {
+                $this->addLog($update[message][from][id],'info', $update[message][videonote][file_id], json_encode($update), $time, 'videonote message');
+            }
+            elseif(!empty($update["message"][contact]))
+            {
+                $this->addLog($update[message][from][id],'info', 'contact', json_encode($update), $time, 'contact message');
+            }
+            elseif(!empty($update["message"][location]))
+            {
+                $this->addLog($update[message][from][id],'info', 'location', json_encode($update), $time, 'location message');
+            }
+            elseif(!empty($update["message"][venue]))
+            {
+                $this->addLog($update[message][from][id],'info', 'venue', json_encode($update), $time, 'venue message');
+            }
+            elseif(!empty($update["message"][game]))
+            {
+                $this->addLog($update[message][from][id],'info', $update[message][game][title], json_encode($update), $time, 'game message');
+            }
+            elseif(!empty($update["message"][sticker]))
+            {
+                $this->addLog($update[message][from][id],'info', $update[message][sticker][file_id], json_encode($update), $time, 'sticker message');
+            }
+            elseif(!empty($update["message"][voice]))
+            {
+                $this->addLog($update[message][from][id],'info', $update[message][voice][file_id], json_encode($update), $time, 'voice message');
+            }
+            elseif(!empty($update["message"][photo]))
+            {
+                $this->addLog($update[message][from][id],'info', $update[message][photo][file_id], json_encode($update), $time, 'photo message');
+            }
+            else
+            {
+                $this->addLog($update[message][from][id],'warning', 'unknown message', json_encode($update), $time, 'unknown message');
+            }
+        }
+        elseif(!empty($update["edited_message"]))
+        {
+            //handle_message($update["edited_message"], $website);
+        }
+        elseif(!empty($update["callback_query"]))
+        {
+            $this->addLog($update[callback_query][from][id],'info', $update[callback_query][data], json_encode($update), $time, 'callback_query');
+        }
+        else
+        {
+            $this->addLog(0,'warning', 'unknown', json_encode($update), $time, 'unknown');
+        }
+    }
+
+    private function addLog($chatId,$status, $msg, $source, $lead_time, $type)
+    {
+        static::$db->query("INSERT INTO log (user_id, text, status, source, lead_time, type) VALUES (
+            $chatId, '$msg', '$status', '$source', $lead_time, '$type'
+        )");
+
+        return true;
+    }
+
 }
