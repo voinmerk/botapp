@@ -2,16 +2,23 @@
 
 namespace voinmerk\botapp;
 
+defined('BOT_DEBUG') or define('BOT_DEBUG', false);
+
 /**
  * Class BaseBot
  */
-abstract class BaseBot
+class BaseBot
 {
 	public static $classMap = [];
 
 	public static $aliases = ['@bot' => __DIR__];
 
 	public static $db;
+
+    public function run()
+    {
+        return 1;
+    }
 
 	public static function autoload($className)
     {
@@ -31,7 +38,7 @@ abstract class BaseBot
 
         include $classFile;
 
-        if (YII_DEBUG && !class_exists($className, false) && !interface_exists($className, false) && !trait_exists($className, false)) {
+        if (BOT_DEBUG && !class_exists($className, false) && !interface_exists($className, false) && !trait_exists($className, false)) {
             throw new \Exception("Unable to find '$className' in file: $classFile. Namespace missing?");
         }
     }

@@ -1,11 +1,9 @@
 <?php
 
-namespace voinmerk\botapp;
-
 /**
  * Class Bot
  */
-class Bot extends \voinmerk\botapp\BaseBot;
+class Bot extends \voinmerk\botapp\BaseBot
 {
 	public function __construct($config)
 	{

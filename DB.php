@@ -17,7 +17,7 @@ class DB {
 	 *
  	*/
 	public function __construct($db) {
-		$class = 'DB\\' . $db['adaptor'];
+		$class = 'voinmerk\\botapp\\db\\' . $db['adaptor'];
 
 		if (class_exists($class)) {
 			$this->adaptor = new $class($db['hostname'], $db['username'], $db['password'], $db['database'], $db['port']);
@@ -46,6 +46,17 @@ class DB {
      */
 	public function escape($value) {
 		return $this->adaptor->escape($value);
+	}
+
+	/**
+     * 
+     *
+     * @param	string	$value
+	 * 
+	 * @return	string
+     */
+	public function escapeString($value) {
+		return "'" . $this->adaptor->escape($value) . "'";
 	}
 
 	/**
