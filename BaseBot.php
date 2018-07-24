@@ -15,6 +15,8 @@ class BaseBot
 
 	public static $db;
 
+    public static $token;
+
     public function run()
     {
         return 1;
