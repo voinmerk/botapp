@@ -2,22 +2,16 @@
 
 namespace voinmerk\botapp;
 
-use voinmerk\botapp\DB;
-
-class BaseBot
+/**
+ * Class BaseBot
+ */
+abstract class BaseBot
 {
 	public static $classMap = [];
 
 	public static $aliases = ['@bot' => __DIR__];
 
-	public $db;
-
-	public function __construct($config)
-	{
-		static::$classMap = $config['classes'];
-
-		$this->db = new DB($config['db']);
-	}
+	public static $db;
 
 	public static function autoload($className)
     {
